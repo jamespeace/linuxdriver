@@ -1,0 +1,10 @@
+MODCFLAGS = -Wall -O2 -D__KERNEL__ -DMODULE -isystem /usr/src/linux-$(shell uname -r)/include
+CC = gcc
+all: signalmod.o ctrlc
+
+ctrlc:ctrlc.c
+	$(CC) ctrlc.c -o ctrlc
+signalmod.o:signalmod.c
+	$(CC) $(MODCFLAGS) -c signalmod.c
+clean:
+	rm -rf *.o ctrlc

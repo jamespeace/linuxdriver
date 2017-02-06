@@ -1,0 +1,8 @@
+MODCFLAGS = -Wall -O2 -D__KERNEL__ -DMODULE -isystem ../../kernel/include
+CC = gcc
+TARGET = ktimer
+
+$(TARGET).o:$(TARGET).c
+	$(CC) $(MODCFLAGS) -c $(TARGET).c
+clean:
+	rm -rf $(TARGET).o

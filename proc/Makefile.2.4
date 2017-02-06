@@ -1,0 +1,19 @@
+MODCFLAGS = -Wall -O2 -D__KERNEL__ -DMODULE -isystem /usr/src/linux-$(shell uname -r)/include
+CC = gcc
+TARGET1 = procfs
+TARGET2 = procfs1
+TARGET3 = procfs_read
+TARGET3 = procfs_write
+
+all: $(TARGET1).o $(TARGET2).o $(TARGET3).o $(TARGET4).o
+
+$(TARGET1).o:$(TARGET1).c
+	$(CC) $(MODCFLAGS) -c $(TARGET1).c
+$(TARGET2).o:$(TARGET2).c
+	$(CC) $(MODCFLAGS) -c $(TARGET2).c
+$(TARGET3).o:$(TARGET3).c
+	$(CC) $(MODCFLAGS) -c $(TARGET3).c
+$(TARGET4).o:$(TARGET4).c
+	$(CC) $(MODCFLAGS) -c $(TARGET4).c
+clean:
+	rm -rf $(TARGET).o *.o

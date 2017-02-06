@@ -1,0 +1,9 @@
+INCLUDEDIR = /usr/src/linux-$(shell uname -r)/include
+DEBFLAGS = -O2
+CFLAGS = -D__KERNEL__ -DMODULE -Wall $(DEBFLAGS)
+CFLAGS += -isystem $(INCLUDEDIR)
+OBJS = pcnet32.o
+all: $(OBJS)
+
+clean:
+	rm -rf *.o

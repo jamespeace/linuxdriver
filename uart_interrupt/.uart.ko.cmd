@@ -1,0 +1,1 @@
+cmd_/root/exercise/uart_interrupt/uart.ko := ld -r -m elf_i386 -T /usr/src/linux-source-2.6.32/scripts/module-common.lds --build-id -o /root/exercise/uart_interrupt/uart.ko /root/exercise/uart_interrupt/uart.o /root/exercise/uart_interrupt/uart.mod.o

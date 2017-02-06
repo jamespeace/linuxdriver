@@ -1,0 +1,7 @@
+INCLUDEDIR = /usr/src/linux-$(shell uname -r)/include
+CFLAGS = -O2 -D__KERNEL__ -DMODULE -Wall -isystem $(INCLUDEDIR)
+OBJS = time_unit.o
+all: $(OBJS)
+
+clean:
+	rm -rf *.o

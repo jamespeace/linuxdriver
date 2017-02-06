@@ -1,0 +1,1 @@
+cmd_/root/exercise/signal/signalmod.ko := ld -r -m elf_i386 -T /usr/src/linux-source-2.6.32/scripts/module-common.lds --build-id -o /root/exercise/signal/signalmod.ko /root/exercise/signal/signalmod.o /root/exercise/signal/signalmod.mod.o

@@ -1,0 +1,11 @@
+MODCFLAGS = -Wall -O2 -D__KERNEL__ -DMODULE -isystem /usr/src/linux-$(shell uname -r)/include
+CC = gcc
+TARGET = chardev 
+
+all: $(TARGET).o
+
+$(TARGET).o:$(TARGET).c
+	$(CC) $(MODCFLAGS) -c $(TARGET).c
+
+clean:
+	rm -rf $(TARGET).o

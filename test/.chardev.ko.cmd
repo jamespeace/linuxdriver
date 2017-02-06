@@ -1,0 +1,1 @@
+cmd_/root/exercise/test/chardev.ko := ld -r -m elf_i386 -T /usr/src/linux-source-2.6.32/scripts/module-common.lds --build-id -o /root/exercise/test/chardev.ko /root/exercise/test/chardev.o /root/exercise/test/chardev.mod.o

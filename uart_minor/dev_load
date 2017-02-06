@@ -1,0 +1,29 @@
+#!/bin/sh
+
+B26=`uname -r|cut -d'.' -f2`
+if [ "$B26" -eq "4" ]; then
+  module="uart.o"
+else
+  module="uart.ko"
+fi
+
+device="uart"
+group="root"
+mode="664"
+
+# invoke insmod with all arguments we got
+/sbin/insmod -f $module || exit 1
+
+major=`cat /proc/devices | awk "\\$2==\"$device\" {print \\$1}"`
+
+echo "Major number = $major"
+
+for i in 0 1; do
+  rm -f /dev/${device}${i}
+  mknod /dev/${device}${i} c ${major} ${i}
+  chgrp $group /dev/${device}${i}
+  chmod $mode  /dev/${device}${i}
+done
+
+
+

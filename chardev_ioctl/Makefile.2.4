@@ -1,0 +1,6 @@
+MODCFLAGS = -Wall -O2 -D__KERNEL__ -DMODULE -isystem /usr/src/linux-$(shell uname -r)/include
+CC = gcc
+my_ioctl.o:my_ioctl.c
+	$(CC) $(MODCFLAGS) -c chardev_ioctl.c
+clean:
+	rm -rf *.o
